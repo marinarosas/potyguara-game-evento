@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f02afd854e01e2b4d8bc72f191b57f40, type: 3}
+  m_Name: Guitaura
+  m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: eb20de162da16ce438ac1d544a8333dd, type: 3}
+  banda: {fileID: 7887728902336364106, guid: 14c089f408de6434ab2b66913a5cb3f3, type: 3}
+  description: Show de abertura - Guitaura
+  clip: {fileID: 8300000, guid: a452456be807358489657138fbb671b9, type: 3}
+  extras:
+  - {fileID: 2062039480309206881, guid: ab357289e7ad3ab4cb8a5e2573a8e9c0, type: 3}
+  id: 2001
