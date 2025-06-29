@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9630df9e35472564997a4f67390eae03, type: 3}
+  m_Name: Sunga
+  m_EditorClassIdentifier: 
+  skinName: Sunga
+  skinMeshes:
+  - {fileID: 8553515452439173768, guid: af4cc672a38eceb4da03594e32d1874a, type: 3}
+  - {fileID: -1912128253955998058, guid: af4cc672a38eceb4da03594e32d1874a, type: 3}
+  - {fileID: 6885373196148123371, guid: af4cc672a38eceb4da03594e32d1874a, type: 3}
+  skinMaterials:
+  - name: Sunga preta
+    material: {fileID: 2100000, guid: 6c4c0ff905a8df5419068141cfb5a805, type: 2}
+  - name: Camisa verde
+    material: {fileID: 2100000, guid: f5bb548d5a659fb46b934bd60ac141ef, type: 2}
+  - name: Camisa amarela
+    material: {fileID: 2100000, guid: bba45c0795bda654cb87e3ce98cc0c0a, type: 2}
+  - name: Sem camisa
+    material: {fileID: 2100000, guid: bf941730a8dfd354ebfb3cdb76861661, type: 2}
+  hasHair: 1
+  hasBeard: 0
+  hasHead: 1
+  hasChest: 1
+  hasBelly: 1
+  hasArms: 1
+  hasForearms: 1
+  hasHands: 1
+  hasHips: 0
+  hasLegs: 1
+  hasAnkles: 1
+  hasFeet: 1

@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9630df9e35472564997a4f67390eae03, type: 3}
+  m_Name: KimonoCurto
+  m_EditorClassIdentifier: 
+  skinName: Kimono curto
+  skinMeshes:
+  - {fileID: -5176293279672427578, guid: 6baf1187e64b3b74198d0f13aaba77cb, type: 3}
+  - {fileID: -8106477792894700748, guid: 6baf1187e64b3b74198d0f13aaba77cb, type: 3}
+  - {fileID: 6143556242187193460, guid: 6baf1187e64b3b74198d0f13aaba77cb, type: 3}
+  - {fileID: -8726954667256600251, guid: 6baf1187e64b3b74198d0f13aaba77cb, type: 3}
+  skinMaterials:
+  - name: Preto e branco
+    material: {fileID: 2100000, guid: 0a6694a8fb9d6db40b52a7870d50debb, type: 2}
+  - name: Azul e preto
+    material: {fileID: 2100000, guid: b9a9c69c813adc942be989a7911dcb82, type: 2}
+  - name: Vermelho e preto
+    material: {fileID: 2100000, guid: 4d64bb2a332897e4a82aaed4d93ac3ae, type: 2}
+  - name: Laranja e preto
+    material: {fileID: 2100000, guid: 5dea76d6341f54d478fc1f6965622e7d, type: 2}
+  hasHair: 1
+  hasBeard: 0
+  hasHead: 1
+  hasChest: 0
+  hasBelly: 0
+  hasArms: 1
+  hasForearms: 1
+  hasHands: 1
+  hasHips: 0
+  hasLegs: 1
+  hasAnkles: 1
+  hasFeet: 1

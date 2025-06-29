@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9630df9e35472564997a4f67390eae03, type: 3}
+  m_Name: Junina
+  m_EditorClassIdentifier: 
+  skinName: "Viva S\xE3o Jo\xE3o"
+  skinMeshes:
+  - {fileID: 827728252877883606, guid: 9aa943f85187d19418ce6e9712f61db5, type: 3}
+  - {fileID: -6575724624362831857, guid: 9aa943f85187d19418ce6e9712f61db5, type: 3}
+  skinMaterials:
+  - name: Tradicional
+    material: {fileID: 2100000, guid: 8922f4aed6739fb4eb94bb9bd13818ff, type: 2}
+  hasHair: 1
+  hasBeard: 0
+  hasHead: 1
+  hasChest: 1
+  hasBelly: 0
+  hasArms: 1
+  hasForearms: 1
+  hasHands: 1
+  hasHips: 0
+  hasLegs: 1
+  hasAnkles: 0
+  hasFeet: 0

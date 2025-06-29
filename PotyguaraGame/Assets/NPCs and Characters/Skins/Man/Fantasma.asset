@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9630df9e35472564997a4f67390eae03, type: 3}
+  m_Name: Fantasma
+  m_EditorClassIdentifier: 
+  skinName: Fastama
+  skinMeshes:
+  - {fileID: 514471462265150744, guid: 50a18bfb11b2ff74ab39afa9968ae259, type: 3}
+  skinMaterials:
+  - name: "Len\xE7ol branco"
+    material: {fileID: 2100000, guid: 003c71e19b1bf3649b2863bb2b09fd79, type: 2}
+  - name: Olhinhos
+    material: {fileID: 2100000, guid: 0b925fe003c934e4b862c55533681136, type: 2}
+  - name: Olhos e boca
+    material: {fileID: 2100000, guid: a41df29e6fb821245951b6e7d1e0627a, type: 2}
+  - name: Toalha de mesa
+    material: {fileID: 2100000, guid: 11fe5145c54447b409c3e3dfec31a276, type: 2}
+  hasHair: 0
+  hasHead: 0
+  hasChest: 0
+  hasBelly: 0
+  hasArms: 0
+  hasForearms: 0
+  hasHands: 0
+  hasHips: 0
+  hasLegs: 0
+  hasAnkles: 0
+  hasFeet: 0

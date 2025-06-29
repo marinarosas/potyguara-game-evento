@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9630df9e35472564997a4f67390eae03, type: 3}
+  m_Name: Shortinho
+  m_EditorClassIdentifier: 
+  skinName: Shortinho
+  skinMeshes:
+  - {fileID: -8106477792894700748, guid: 1b93d3ff16c8b3e4ca8d8a3e54431d14, type: 3}
+  - {fileID: 6143556242187193460, guid: 1b93d3ff16c8b3e4ca8d8a3e54431d14, type: 3}
+  - {fileID: 8588109113712156178, guid: 1b93d3ff16c8b3e4ca8d8a3e54431d14, type: 3}
+  skinMaterials:
+  - name: Blusa branca
+    material: {fileID: 2100000, guid: 13331110924690b4bbcec5a16aec7730, type: 2}
+  - name: Blusa preta
+    material: {fileID: 2100000, guid: 3aaf7719a2c484840977576216df8b2c, type: 2}
+  - name: Blusa laranja
+    material: {fileID: 2100000, guid: 7069d504feb71694fae18d669970d93b, type: 2}
+  - name: Blusa verde
+    material: {fileID: 2100000, guid: 3517b8f562f3cc4439e16b311538531d, type: 2}
+  - name: Blusa magenta
+    material: {fileID: 2100000, guid: 4343c6694cb6a3547a84f0fca18b91c4, type: 2}
+  hasHair: 1
+  hasBeard: 0
+  hasHead: 1
+  hasChest: 0
+  hasBelly: 0
+  hasArms: 1
+  hasForearms: 1
+  hasHands: 1
+  hasHips: 0
+  hasLegs: 1
+  hasAnkles: 1
+  hasFeet: 1

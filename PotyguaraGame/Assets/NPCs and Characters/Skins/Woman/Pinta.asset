@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9630df9e35472564997a4f67390eae03, type: 3}
+  m_Name: Pinta
+  m_EditorClassIdentifier: 
+  skinName: Estilo natalense
+  skinMeshes:
+  - {fileID: -2192082096960828095, guid: 343051f40aa2deb49b39d2c886d7f0e7, type: 3}
+  - {fileID: 2635460834990549039, guid: 343051f40aa2deb49b39d2c886d7f0e7, type: 3}
+  - {fileID: 1558660484374303735, guid: 343051f40aa2deb49b39d2c886d7f0e7, type: 3}
+  - {fileID: 6885373196148123371, guid: 343051f40aa2deb49b39d2c886d7f0e7, type: 3}
+  - {fileID: -4349308463774086458, guid: 343051f40aa2deb49b39d2c886d7f0e7, type: 3}
+  - {fileID: -6566885327121877972, guid: 343051f40aa2deb49b39d2c886d7f0e7, type: 3}
+  - {fileID: -2717185890894692056, guid: 343051f40aa2deb49b39d2c886d7f0e7, type: 3}
+  skinMaterials:
+  - name: Kit claro
+    material: {fileID: 2100000, guid: 26bcb21d2468b8943b0af066bfb6ba31, type: 2}
+  - name: Kit escuro
+    material: {fileID: 2100000, guid: 2588133d3b14d3c4eace8fd96d56b83d, type: 2}
+  hasHair: 1
+  hasBeard: 0
+  hasHead: 1
+  hasChest: 0
+  hasBelly: 0
+  hasArms: 1
+  hasForearms: 1
+  hasHands: 1
+  hasHips: 0
+  hasLegs: 1
+  hasAnkles: 1
+  hasFeet: 1

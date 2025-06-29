@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9630df9e35472564997a4f67390eae03, type: 3}
+  m_Name: Padrao
+  m_EditorClassIdentifier: 
+  skinName: "Padr\xE3o"
+  skinMeshes:
+  - {fileID: 4811773187566091664, guid: ae28c5652f5ebfb47ad07c0468640a40, type: 3}
+  - {fileID: -1912128253955998058, guid: ae28c5652f5ebfb47ad07c0468640a40, type: 3}
+  - {fileID: 6143556242187193460, guid: ae28c5652f5ebfb47ad07c0468640a40, type: 3}
+  skinMaterials:
+  - name: Camisa branca e Jeans
+    material: {fileID: 2100000, guid: 5f2681f6cc97a8342a9838269bf355c2, type: 2}
+  - name: "Cal\xE7a vermelha"
+    material: {fileID: 2100000, guid: 10209543621baeb4aa6c73dcdbdb1478, type: 2}
+  - name: Logo simplificado
+    material: {fileID: 2100000, guid: 3d0f2107261edf04fb6dc6da9e234dca, type: 2}
+  hasHair: 1
+  hasHead: 1
+  hasChest: 0
+  hasBelly: 0
+  hasArms: 1
+  hasForearms: 1
+  hasHands: 1
+  hasHips: 0
+  hasLegs: 0
+  hasAnkles: 0
+  hasFeet: 0

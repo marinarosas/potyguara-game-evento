@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9630df9e35472564997a4f67390eae03, type: 3}
+  m_Name: VestidoLongo
+  m_EditorClassIdentifier: 
+  skinName: Vestido longo
+  skinMeshes:
+  - {fileID: -497225568183085001, guid: 2fd67dc62601c2d4cb482422df778449, type: 3}
+  - {fileID: 6885373196148123371, guid: 2fd67dc62601c2d4cb482422df778449, type: 3}
+  skinMaterials:
+  - name: Branco e azul
+    material: {fileID: 2100000, guid: 70d8de0a4a8f83646915dee00de00af2, type: 2}
+  - name: Laranja e branco
+    material: {fileID: 2100000, guid: 7b100ff08e3ecf640abb3d74b1c7fcbd, type: 2}
+  hasHair: 1
+  hasBeard: 0
+  hasHead: 1
+  hasChest: 1
+  hasBelly: 0
+  hasArms: 1
+  hasForearms: 1
+  hasHands: 1
+  hasHips: 0
+  hasLegs: 1
+  hasAnkles: 1
+  hasFeet: 1

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9630df9e35472564997a4f67390eae03, type: 3}
+  m_Name: Cropped e Sandalia
+  m_EditorClassIdentifier: 
+  skinName: "Sand\xE1lia e cropped"
+  skinMeshes:
+  - {fileID: 2281033742096262929, guid: 28108c11ff64b074a966a782259ef30e, type: 3}
+  - {fileID: 4845852086953562520, guid: 28108c11ff64b074a966a782259ef30e, type: 3}
+  - {fileID: -8996781541356180022, guid: 28108c11ff64b074a966a782259ef30e, type: 3}
+  skinMaterials:
+  - name: Preto e branco
+    material: {fileID: 2100000, guid: 267c02a4c96afd544bbc7e8b87b7e193, type: 2}
+  - name: Neutro
+    material: {fileID: 2100000, guid: 6940b7c15f8c10e4b8567a111a079261, type: 2}
+  - name: Camuflagem
+    material: {fileID: 2100000, guid: 72d80b30f9b36a941af9bec3933e95c5, type: 2}
+  hasHair: 1
+  hasBeard: 0
+  hasHead: 1
+  hasChest: 0
+  hasBelly: 1
+  hasArms: 1
+  hasForearms: 1
+  hasHands: 1
+  hasHips: 0
+  hasLegs: 0
+  hasAnkles: 1
+  hasFeet: 1

@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9630df9e35472564997a4f67390eae03, type: 3}
+  m_Name: Biquini
+  m_EditorClassIdentifier: 
+  skinName: Biquini
+  skinMeshes:
+  - {fileID: -6268238552560437597, guid: c9d73164da494884895549698bfa0a43, type: 3}
+  - {fileID: -8472032443104073498, guid: c9d73164da494884895549698bfa0a43, type: 3}
+  - {fileID: -8581739643467159188, guid: c9d73164da494884895549698bfa0a43, type: 3}
+  - {fileID: -7401475914706046804, guid: c9d73164da494884895549698bfa0a43, type: 3}
+  - {fileID: 6885373196148123371, guid: c9d73164da494884895549698bfa0a43, type: 3}
+  skinMaterials:
+  - name: Canga laranja
+    material: {fileID: 2100000, guid: 8ef838a035c54a342a5c7d5828bebc88, type: 2}
+  - name: Canga amarela
+    material: {fileID: 2100000, guid: 3135f3805ab3bb44db5e4b7b2ba51127, type: 2}
+  - name: Biquini laranja
+    material: {fileID: 2100000, guid: b6a0dc9133a92954daa63a2cd1c76740, type: 2}
+  - name: Biquini preto
+    material: {fileID: 2100000, guid: 6efb99f6f178d354e9919bb4157950c7, type: 2}
+  - name: Biquini azul
+    material: {fileID: 2100000, guid: 628b55a9442dbce45b6457618fce6b68, type: 2}
+  hasHair: 1
+  hasBeard: 0
+  hasHead: 1
+  hasChest: 1
+  hasBelly: 1
+  hasArms: 1
+  hasForearms: 1
+  hasHands: 1
+  hasHips: 1
+  hasLegs: 1
+  hasAnkles: 1
+  hasFeet: 1

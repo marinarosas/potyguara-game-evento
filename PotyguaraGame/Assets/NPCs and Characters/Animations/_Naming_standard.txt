@@ -1,0 +1,9 @@
+Palavras separadas com _
+
+Sufixos:
+[M] Male
+[F] Female
+[Num] Numeração quando houver mais de uma do mesmo tipo
+
+Ex.:
+Breathing_Idle_F1

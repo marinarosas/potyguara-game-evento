@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9630df9e35472564997a4f67390eae03, type: 3}
+  m_Name: Alien
+  m_EditorClassIdentifier: 
+  skinName: De outro planeta
+  skinMeshes:
+  - {fileID: -1888420263835533146, guid: 5dd7d40c4f563c448863665e927d4eb4, type: 3}
+  - {fileID: -8996781541356180022, guid: 5dd7d40c4f563c448863665e927d4eb4, type: 3}
+  - {fileID: 8588109113712156178, guid: 5dd7d40c4f563c448863665e927d4eb4, type: 3}
+  skinMaterials:
+  - name: "Cl\xE1ssico"
+    material: {fileID: 2100000, guid: ce39a801bf21b5d4ca80b86380a922d7, type: 2}
+  - name: De marte
+    material: {fileID: 2100000, guid: 2bbfb123d28a4de468b5d67d77e23acc, type: 2}
+  - name: "Aqu\xE1tico"
+    material: {fileID: 2100000, guid: e01cc1a9ef83eba4195bec205d09c314, type: 2}
+  - name: "L\xEDder"
+    material: {fileID: 2100000, guid: 9e2c1c9a87d1b1646a3424ba97a04865, type: 2}
+  hasHair: 1
+  hasBeard: 0
+  hasHead: 1
+  hasChest: 0
+  hasBelly: 0
+  hasArms: 1
+  hasForearms: 1
+  hasHands: 1
+  hasHips: 0
+  hasLegs: 0
+  hasAnkles: 1
+  hasFeet: 1
