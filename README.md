@@ -1,1 +1,1 @@
-# potyguara-game-evento
+# potyguara-game
