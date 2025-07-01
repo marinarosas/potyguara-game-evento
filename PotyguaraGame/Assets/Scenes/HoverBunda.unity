@@ -2810,58 +2810,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7d0678c8465cd6243858f55824a57eaf, type: 3}
   m_PrefabInstance: {fileID: 276808973}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &279792975
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 279792977}
-  - component: {fileID: 279792976}
-  m_Layer: 0
-  m_Name: Achievement
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &279792976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 279792975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0351377546687de4581c2a2e8e6fab7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zombies: 0
-  eventos: 0
-  ships_levas: 0
-  partidas_hover: 0
-  partidas_defesaForte: 0
-  firstCompleteEvent: 0
-  isFirstShip: 1
-  isFirstDeadInZombieMode: 1
---- !u!4 &279792977
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 279792975}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 180.74367, y: 3.113299, z: 61.074814}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &345443899
 GameObject:
   m_ObjectHideFlags: 0
@@ -18867,4 +18815,3 @@ SceneRoots:
   - {fileID: 1236666548}
   - {fileID: 1033044586}
   - {fileID: 402281978}
-  - {fileID: 279792977}

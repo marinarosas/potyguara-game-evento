@@ -14,7 +14,6 @@ public class SalesCenterController : MonoBehaviour
     [SerializeField] public GameObject buttonPrefab;
 
     [Header("Scriptable Objects")]
-    [SerializeField] public Product[] potycoins;
     [SerializeField] public Product[] shows;
     [SerializeField] public Product[] meditationClasses;
     [SerializeField] public Product[] skinsFEM;
@@ -33,41 +32,7 @@ public class SalesCenterController : MonoBehaviour
         GameObject newButton = Instantiate(buttonPrefab, content);
         newButton.GetComponent<Image>().sprite = image;
         newButton.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = description;
-        if (category == "skin")
-        {
-            if (FindFirstObjectByType<PotyPlayerController>().VerifSkins(index))
-            {
-                newButton.GetComponent<Button>().interactable = false;
-                return;
-            }
-        }
-        if(category == "class")
-        {
-            if (description == "FREE")
-            {
-                if (FindFirstObjectByType<PotyPlayerController>().VerifSessions(id))
-                {
-                    newButton.GetComponent<Button>().interactable = false;
-                    return;
-                }
-                newButton.GetComponent<Button>().onClick.AddListener(() => BuyFreeProduct(category, id, index, newButton.GetComponent<Button>()));
-                return;
-            }
-        }
-        if(category == "show")
-        {
-            if (description == "FREE")
-            {
-                if (FindFirstObjectByType<PotyPlayerController>().VerifTickets(id))
-                {
-                    newButton.GetComponent<Button>().interactable = false;
-                    return;
-                }
-                newButton.GetComponent<Button>().onClick.AddListener(() => BuyFreeProduct(category, id, index, newButton.GetComponent<Button>()));
-                return;
-            }
-        }
-        newButton.GetComponent<Button>().onClick.AddListener(() => BuyProduct(id, description, category, newButton.GetComponent<Button>()));
+        newButton.GetComponent<Button>().onClick.AddListener(() => BuyFreeProduct(category, id, index, newButton.GetComponent<Button>()));
     }
 
     public void CheckSessions()
@@ -140,11 +105,6 @@ public class SalesCenterController : MonoBehaviour
         foreach (Transform child in content) {
             Destroy(child.gameObject);
         }
-        if (category == "moeda")
-        {
-            foreach (Product item in potycoins)
-                AddNewButton(item.image, item.id, item.description, item.category, item.index);
-        }
         if(category == "show")
         {
             foreach (Product item in shows)
@@ -163,17 +123,6 @@ public class SalesCenterController : MonoBehaviour
             else
                 foreach (Product item in skinsMASC)
                     AddNewButton(item.image, item.id, item.description, item.category, item.index);
-        }
-    }
-
-    private void BuyProduct(string id, string description, string category, Button btn)
-    {
-        if (!isPurshing)
-        {
-            Microtransaction.Instance.InitSale(id, description, category);
-            if (!category.Equals("moeda"))
-                btn.interactable = false;
-            isPurshing = true;
         }
     }
 

@@ -16,32 +16,13 @@ public class HoverController : MonoBehaviour
     }
     public void StartHover()
     {
-        //FindFirstObjectByType<PotyPlayerController>().ConsumePotycoins(10);
         Invoke("ModifyPositionOfPlayer", 2f);
-        /*int potycoins = FindFirstObjectByType<PotyPlayerController>().GetPotycoins();
-        if (potycoins >= 10)
-        {
-            FindFirstObjectByType<PotyPlayerController>().ConsumePotycoins(10);
-            Invoke("ModifyPositionOfPlayer", 2f);
-        }
-        else
-            FindFirstObjectByType<SteamProfileManager>().ShootAlert();*/
     }
 
     public void ModifyPositionOfPlayer() {
         GameObject point = GameObject.Find("PointOfStart");
         if(point != null)
         {
-            /*Achievement.Instance.partidas_hover++;
-            if (Achievement.Instance.partidas_defesaForte == 1)
-                Achievement.Instance.UnclockAchievement("first_hover");
-            if (Achievement.Instance.partidas_defesaForte == 50)
-                Achievement.Instance.UnclockAchievement("50tou");
-            if (Achievement.Instance.partidas_defesaForte == 100)
-                Achievement.Instance.UnclockAchievement("centenario");
-
-            Achievement.Instance.SetStat("partidas_hover", Achievement.Instance.ships_levas);*/
-
             board.transform.position = point.transform.position;
             board.transform.eulerAngles = new Vector3(0f, point.transform.eulerAngles.y, 0f);
             board.GetComponent<Rigidbody>().isKinematic = false;

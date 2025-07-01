@@ -12,7 +12,7 @@ public class HeightController : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        //GameObject.FindWithTag("MainCamera").transform.GetChild(4).GetComponent<SteamProfileManager>().UpdatePotycoins(FindFirstObjectByType<PotyPlayerController>().GetPotycoins());
+        GameObject.FindWithTag("MainCamera").transform.GetChild(4).GetComponent<SteamProfileManager>().UpdatePotycoins(FindFirstObjectByType<PotyPlayerController>().GetPotycoins());
         // Se não for Atalhos de Menu, coloca o player na posição inicial da Cena
         if (!TransitionController.Instance.GetIsSkip())
         {

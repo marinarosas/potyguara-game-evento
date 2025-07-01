@@ -137,14 +137,6 @@ public class ZumbiController : MonoBehaviour
                 collision.gameObject.GetComponent<BulletController>().playEffect();
                 collision.gameObject.GetComponent<BulletController>().StartBloodEffect(2f, 0.5f);
                 GameForteController.Instance.SetCurrentScore(1);
-                Achievement.Instance.zombies++;
-
-                if (Achievement.Instance.partidas_defesaForte == 100)
-                    Achievement.Instance.UnclockAchievement("kill_100");
-                if (Achievement.Instance.partidas_defesaForte == 200)
-                    Achievement.Instance.UnclockAchievement("zumbinator");
-
-                Achievement.Instance.SetStat("zombies", Achievement.Instance.zombies);
 
                 GetComponent<ZumbiController>().Dead();
                 Destroy(collision.gameObject, 3f);

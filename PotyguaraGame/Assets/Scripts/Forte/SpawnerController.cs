@@ -151,14 +151,6 @@ public class SpawnerController : MonoBehaviour
                     finishUI.transform.GetChild(3).gameObject.SetActive(false);
                     finishUI.transform.GetChild(6).gameObject.SetActive(true);
                     finishUI.transform.GetChild(6).GetComponent<Button>().onClick.AddListener(GameForteController.Instance.ResetGame);
-                    Achievement.Instance.partidas_defesaForte++;
-
-                    if (Achievement.Instance.partidas_defesaForte == 50)
-                        Achievement.Instance.UnclockAchievement("guerreiro_fortaleza");
-                    if (Achievement.Instance.partidas_defesaForte == 100)
-                        Achievement.Instance.UnclockAchievement("maquina_guerra");
-
-                    Achievement.Instance.SetStat("partidas_defesaForte", Achievement.Instance.partidas_defesaForte);
 
                     finishUI.transform.GetChild(5).GetComponent<Text>().text = GameForteController.Instance.GetCurrrentScore() + "";
                     GameForteController.Instance.SetTotalPoints();
@@ -170,16 +162,6 @@ public class SpawnerController : MonoBehaviour
                 {
                     if (slot.childCount == 0)
                     {
-                        Achievement.Instance.ships_levas++;
-
-                        if (Achievement.Instance.partidas_defesaForte == 1)
-                            Achievement.Instance.UnclockAchievement("defensor");
-                        if (Achievement.Instance.partidas_defesaForte == 3)
-                            Achievement.Instance.UnclockAchievement("capitan_fortaleza");
-                        if (Achievement.Instance.partidas_defesaForte == 7)
-                            Achievement.Instance.UnclockAchievement("mao_de_martelo");
-
-                        Achievement.Instance.SetStat("navios_levas", Achievement.Instance.ships_levas);
                         FindFirstObjectByType<SpawnerController>().SetSpawn();
                     }
                 }
@@ -213,8 +195,6 @@ public class SpawnerController : MonoBehaviour
                     }
                     else if (currentLevel == 2)
                     {
-                        Achievement.Instance.UnclockAchievement("end_line");
-
                         finishUI.transform.GetChild(3).gameObject.SetActive(false);
                         finishUI.transform.GetChild(6).gameObject.SetActive(true);
                         finishUI.transform.GetChild(6).GetComponent<Button>().onClick.AddListener(GameForteController.Instance.ResetGame);

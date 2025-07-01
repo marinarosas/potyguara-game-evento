@@ -45,10 +45,6 @@ public class AvatarMenuController : MonoBehaviour
 
     public void SendChosenSkin()
     {
-        /*if (!SteamManager.Initialized)
-            return;*/
-
-        //Achievement.Instance.UnclockAchievement("criando_vida");
 
         int skinIndex = int.Parse(options[(int)Option.SKIN].GetOption());
         int variant = int.Parse(options[(int)Option.VARIANT].GetOption());

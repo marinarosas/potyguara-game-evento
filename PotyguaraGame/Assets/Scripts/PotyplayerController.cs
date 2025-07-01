@@ -17,9 +17,6 @@ public class PotyPlayerController : MonoBehaviour
     private string scoreZombieMode = "";
    
 
-    private bool wasConsumed = false;
-
-    // Quantas vezes por segundo enviar a posi��o para o servidor
     public float updateServerTimesPerSecond = 10;
 
     //  Singleton stuff
@@ -133,30 +130,6 @@ public class PotyPlayerController : MonoBehaviour
     {
         playerData.potycoins = value;
         GameObject.FindWithTag("MainCamera").transform.GetChild(4).GetComponent<SteamProfileManager>().UpdatePotycoins(playerData.potycoins);
-    }
-
-    public void SetPotycoins(int value)
-    {
-        playerData.potycoins += value;
-        NetworkManager.Instance.UpdatePotycoins(playerData.potycoins);
-        GameObject.FindWithTag("MainCamera").transform.GetChild(4).GetComponent<SteamProfileManager>().UpdatePotycoins(playerData.potycoins);
-    }
-
-    public void ConsumePotycoins(int value)
-    {
-        if (!wasConsumed)
-        {
-            playerData.potycoins -= value;
-            wasConsumed = true;
-            NetworkManager.Instance.UpdatePotycoins(playerData.potycoins);
-            GameObject.FindWithTag("MainCamera").transform.GetChild(4).GetComponent<SteamProfileManager>().UpdatePotycoins(playerData.potycoins);
-            Invoke("ResetBoolean", 2f);
-        }
-    }
-
-    private void ResetBoolean()
-    {
-        wasConsumed = false;
     }
 
     public int GetPotycoins()

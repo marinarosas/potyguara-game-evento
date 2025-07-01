@@ -131,70 +131,31 @@ public class GameForteController : MonoBehaviour
             return;
 
         gameMode = value;
-        Transform mainCamera = GameObject.FindWithTag("MainCamera").transform;
+        Transform mainCam = GameObject.FindWithTag("MainCamera").transform;
         timer = mainCamera.GetChild(0).Find("Timer").gameObject;
         if (value == 0)
         {
             timer.transform.GetChild(0).GetComponent<Text>().text = 90 + "";
             count = 90;
 
-            Transform mainCam = GameObject.FindWithTag("MainCamera").transform;
-
-            if (Application.platform == RuntimePlatform.Android)
-            {
-                handMenuLevel1.SetActive(true);
-                handMenuLevel1.GetComponent<FadeController>().FadeIn();
-                portal.SetActive(false);
-                ranking.GetComponent<FadeController>().FadeOut();
-                FindFirstObjectByType<PotyPlayerController>().ConsumePotycoins(10);
-                FindFirstObjectByType<SpawnerController>().SetLevelZombieMode();
-                zombieMode.gameObject.transform.parent.gameObject.SetActive(false);
-                mainCam.GetChild(4).gameObject.SetActive(false);
-            }
-            else
-            {
-                int potycoins = FindFirstObjectByType<PotyPlayerController>().GetPotycoins();
-                if (potycoins >= 10)
-                {
-                    handMenuLevel1.SetActive(true);
-                    handMenuLevel1.GetComponent<FadeController>().FadeIn();
-                    portal.SetActive(false);
-                    ranking.GetComponent<FadeController>().FadeOut();
-                    FindFirstObjectByType<PotyPlayerController>().ConsumePotycoins(10);
-                    FindFirstObjectByType<SpawnerController>().SetLevelZombieMode();
-                    zombieMode.gameObject.transform.parent.gameObject.SetActive(false);
-                    mainCam.GetChild(4).gameObject.SetActive(false);
-                }
-                else
-                    mainCam.GetChild(4).GetComponent<SteamProfileManager>().ShootAlert();
-            }
+            handMenuLevel1.SetActive(true);
+            handMenuLevel1.GetComponent<FadeController>().FadeIn();
+            portal.SetActive(false);
+            ranking.GetComponent<FadeController>().FadeOut();
+            FindFirstObjectByType<SpawnerController>().SetLevelZombieMode();
+            zombieMode.gameObject.transform.parent.gameObject.SetActive(false);
+            mainCam.GetChild(4).gameObject.SetActive(false);
         }
         else
         {
             timer.transform.GetChild(0).GetComponent<Text>().text = 120 + "";
             count = 120;
-
-            Transform mainCam = GameObject.FindWithTag("MainCamera").transform;
             portal.SetActive(false);
             ranking.GetComponent<FadeController>().FadeOut();
-            FindFirstObjectByType<PotyPlayerController>().ConsumePotycoins(10);
             FindFirstObjectByType<SpawnerController>().SetLevelNormalMode();
             SetStartTimer();
             normalMode.gameObject.transform.parent.gameObject.SetActive(false);
             mainCam.GetChild(4).gameObject.SetActive(false);
-            /*int potycoins = FindFirstObjectByType<PotyPlayerController>().GetPotycoins();
-            if (potycoins >= 10)
-            {
-                portal.SetActive(false);
-                ranking.GetComponent<FadeController>().FadeOut();
-                FindFirstObjectByType<PotyPlayerController>().ConsumePotycoins(10);
-                FindFirstObjectByType<SpawnerController>().SetLevelNormalMode();
-                SetStartTimer();
-                normalMode.gameObject.transform.parent.gameObject.SetActive(false);
-                mainCam.GetChild(4).gameObject.SetActive(false);
-            }
-            else
-                mainCam.GetChild(4).GetComponent<SteamProfileManager>().ShootAlert();*/
         }
     }
 

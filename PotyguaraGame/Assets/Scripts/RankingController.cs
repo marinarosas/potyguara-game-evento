@@ -58,8 +58,6 @@ public class RankingController : MonoBehaviour
             else
             {
                 int temp = int.Parse(FindFirstObjectByType<PotyPlayerController>().GetPositionNormal());
-                if (temp == 1)
-                    Achievement.Instance.UnclockAchievement("heroi_guerra");
                 if (temp >= 1 && temp <= 6)
                 {
                     parent.GetChild(7).gameObject.SetActive(false);

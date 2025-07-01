@@ -35,17 +35,4 @@ public class SkinIntegrationController : MonoBehaviour
         avatar.GetComponent<SetSkin>().SetSkinAvatar(skinIndex, skinMaterial, skinGender);
         animator = avatar.GetComponent<SetSkin>().UpdateAnimator();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        /*InputDevice device = InputDevices.GetDeviceAtXRNode(inputSource);
-        device.TryGetFeatureValue(CommonUsages.primary2DAxis, out inputAxis);
-
-        bool isMoving = inputAxis.magnitude > 0.1f;
-        if (animator != null)
-        {
-            animator.SetBool("isWalking", isMoving);
-        }*/
-    }
 }

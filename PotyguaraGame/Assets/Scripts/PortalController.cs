@@ -10,27 +10,15 @@ public class PortalController : MonoBehaviour
         {
             if (transform.parent.name.Equals("ForteDosReis"))
             {
-                int potycoins = FindFirstObjectByType<PotyPlayerController>().GetPotycoins();
-                if (potycoins >= 10)
-                {
-                    TransitionController.Instance.LoadSceneAsync(3);
-                }
+                TransitionController.Instance.LoadSceneAsync(3);
             }
             else if(transform.parent.name.Equals("PontaNegra"))
             {
-                int potycoins = FindFirstObjectByType<PotyPlayerController>().GetPotycoins();
-                if (potycoins >= 10)
-                {
-                    TransitionController.Instance.LoadSceneAsync(2);
-                }
+                TransitionController.Instance.LoadSceneAsync(2);
             }
             else if(transform.parent.name.Equals("HoverBunda"))
             {
-                int potycoins = FindFirstObjectByType<PotyPlayerController>().GetPotycoins();
-                if (potycoins >= 10)
-                {
-                    TransitionController.Instance.LoadSceneAsync(4);
-                }
+                TransitionController.Instance.LoadSceneAsync(4);
             }
             else
             {

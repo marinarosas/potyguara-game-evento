@@ -16,14 +16,6 @@ public class SteamProfileManager : MonoBehaviour
     {
         avatarImage.texture = defaultImage.texture;
         FindFirstObjectByType<PotyPlayerController>().playerData.name = "PotyguaraVerse";
-        //if (!SteamManager.Initialized) // Verifica se a Steam está inicializada
-        //    return;
-
-        // Obtém a foto de perfil (avatar)
-        //GetSteamAvatar(SteamUser.GetSteamID());
-
-        // obtem o nickname
-        //FindFirstObjectByType<PotyPlayerController>().playerData.name = SteamFriends.GetPersonaName();
     }
     void OnEnable()
     {
@@ -39,44 +31,6 @@ public class SteamProfileManager : MonoBehaviour
     {
         transform.GetChild(4).GetComponent<FadeController>().FadeInForFadeOut(2f);
     }
-
-    /*void GetSteamAvatar(CSteamID steamID)
-    {
-        int imageID = SteamFriends.GetLargeFriendAvatar(steamID); // Obtém o ID da imagem
-
-        if (imageID == -1)
-        {
-            Debug.LogError("Avatar ainda não está carregado!");
-            return;
-        }
-
-        // Obtém o tamanho do avatar
-        uint width, height;
-        if (!SteamUtils.GetImageSize(imageID, out width, out height))
-        {
-            Debug.LogError("Erro ao obter tamanho do avatar!");
-            return;
-        }
-
-        // Cria um array de bytes para armazenar os pixels da imagem
-        byte[] imageData = new byte[width * height * 4];
-
-        if (!SteamUtils.GetImageRGBA(imageID, imageData, imageData.Length))
-        {
-            Debug.LogError("Erro ao obter imagem do avatar!");
-            return;
-        }
-
-        // Converte os bytes para uma textura
-        Texture2D avatarTexture = new Texture2D((int)width, (int)height, TextureFormat.RGBA32, false);
-        avatarTexture.LoadRawTextureData(imageData);
-        avatarTexture.Apply();
-
-        avatarTexture = FlipTextureVertically(avatarTexture);
-
-        // Exibe a textura na UI
-        avatarImage.texture = avatarTexture;
-    }*/
 
     Texture2D FlipTextureVertically(Texture2D original)
     {
