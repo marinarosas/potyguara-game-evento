@@ -46,7 +46,7 @@ public class NetworkManager : MonoBehaviour
     public bool firstInHover = false;
     public bool firstInForte = false;
 
-    //private ConcurrentQueue<int> potycoins = new ConcurrentQueue<int>();
+    private ConcurrentQueue<int> potycoins = new ConcurrentQueue<int>();
     private ConcurrentQueue<string> pointingNormalMode = new ConcurrentQueue<string>();
     private ConcurrentQueue<string> pointingZombieMode = new ConcurrentQueue<string>();
     private ConcurrentQueue<string> skin = new ConcurrentQueue<string>();
@@ -188,27 +188,6 @@ public class NetworkManager : MonoBehaviour
                     posRankingN = response.parameters["posRankingN"];
                     posRankingZ = response.parameters["posRankingZ"];
                     break;
-                case "Skins":
-                    string skinsStringFEM = response.parameters["skinsFEM"];
-                    if (skinsStringFEM.Contains("|"))
-                    {
-                        string[] indexList = skinsStringFEM.Split('|');
-                        foreach (var index in indexList)
-                            skinsFEM.Enqueue(int.Parse(index));
-                    }
-                    else
-                        skinsFEM.Enqueue(0);
-
-                    string skinsStringMAL = response.parameters["skinsMAL"];
-                    if (skinsStringMAL.Contains("|"))
-                    {
-                        string[] indexList = skinsStringMAL.Split('|');
-                        foreach (var index in indexList)
-                            skinsMAL.Enqueue(int.Parse(index));
-                    }
-                    else
-                        skinsMAL.Enqueue(0);
-                    break;
                 case "Reconnection":
                     this.playerId = response.parameters["playerID"];
                     string skinS = response.parameters["skin"];
@@ -243,9 +222,6 @@ public class NetworkManager : MonoBehaviour
 
                         skin.Enqueue(response.parameters["skin"]);
                     }
-                    break;
-                case "RewardCoins":
-                    newDay = response.parameters["newDay"].ToLower() == "true" ? true : false;
                     break;
                 default:
                     break;
@@ -303,58 +279,6 @@ public class NetworkManager : MonoBehaviour
             ws.Send(action.ToJson());
     }
 
-    internal void SendRewardCoins()
-    {
-        ActionServer action = new ActionServer()
-        {
-            type = "RewardCoins",
-            actor = this.playerId,
-            parameters = new Dictionary<string, string>()
-            {
-
-            }
-        };
-
-        if (ws != null)
-            // Enviar a ação para o servidor
-            ws.Send(action.ToJson());
-    }
-
-    internal void SendModeTutorial(bool mode)
-    {
-        ActionServer action = new ActionServer()
-        {
-            type = "UpdateModeTutorial",
-            actor = playerId,
-            parameters = new Dictionary<string, string>(){
-                { "mode", mode.ToString() }
-            }
-        };
-        modeTutorialOn = mode;
-
-        if (ws != null)
-            // Enviar a ação para o servidor
-            ws.Send(action.ToJson());
-    }
-
-    internal void SendModeWeather(bool mode)
-    {
-        ActionServer action = new ActionServer()
-        {
-            type = "UpdateModeWeather",
-            actor = playerId,
-            parameters = new Dictionary<string, string>(){
-                { "mode", mode.ToString() }
-            }
-        };
-
-        modeWeatherOn = mode;
-
-        if (ws != null)
-            // Enviar a ação para o servidor
-            ws.Send(action.ToJson());
-    }
-
     internal void SendConnectionSignal(string nickname, string fusoH)
     {
         ActionServer action = new ActionServer()
@@ -405,21 +329,6 @@ public class NetworkManager : MonoBehaviour
             // Enviar a ação para o servidor
             ws.Send(action.ToJson());
     }
-    internal void RequestSkins()
-    {
-        ActionServer action = new ActionServer()
-        {
-            type = "RequestSkins",
-            actor = playerId,
-            parameters = new Dictionary<string, string>(){
-            }
-        };
-
-        if (ws != null)
-            // Enviar a ação para o servidor
-            ws.Send(action.ToJson());
-    }
-
     internal void SendSignalTutorialOK(string typeT)
     {
         ActionServer action = new ActionServer()
@@ -561,39 +470,50 @@ public class NetworkManager : MonoBehaviour
                 // Se o jogador for o jogador local, não fazer nada
                 if (playerId == this.playerId)
                 {
-                    FindFirstObjectByType<PotyPlayerController>().GetPotycoinsOfTheServer(gameState.players[playerId].potycoins);
                     //Debug.Log(playerId + " SOU EU!");
                     // é o jogador local
                     //TODO: talvez precisa atualiza a minha posição se isso puder acontecer
                     // com alguma ação do servidor.
                     continue;
                 }
-
-                if (SceneManager.GetActiveScene().buildIndex == 2)
+              
+                if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1 && SceneManager.GetActiveScene().buildIndex != 5)
                 {
                     // Buscar o jogador na cena pelo playerId
                     GameObject playerObject = GameObject.Find(playerId);
 
                     RemoteUser remoteCharacterController = null;
+                    Vector3 initialPos = GameObject.Find("InitialPosition").transform.position;
+
+                    // Posição recebida do servidor para o jogador remoto atual
+                    Vector3 serverPosition = new Vector3(
+                        gameState.players[playerId].position_x,
+                        gameState.players[playerId].position_y,
+                        gameState.players[playerId].position_z
+                    );
 
                     // Se o jogador não existir, instanciar um novo jogador
                     if (playerObject == null)
                     {
-                        Vector3 initialPos = GameObject.Find("InitialPosition").transform.position;
-                        playerObject = Instantiate(RemotePlayerPrefab, initialPos, Quaternion.identity);
-                        playerObject.GetComponentInChildren<SetSkin>().SetSkinAvatar(gameState.players[playerId].skin.gender,
-                            gameState.players[playerId].skin.index, gameState.players[playerId].skin.material);
+                        playerObject = Instantiate(RemotePlayerPrefab);
+                        playerObject.transform.position = initialPos;
+
+                        SkinUser skin = gameState.players[playerId].skin;
+                        playerObject.GetComponentInChildren<SetSkin>().SetSkinAvatar(skin.gender, skin.index, skin.material);
                         playerObject.name = playerId;
 
                         remoteCharacterController = playerObject.GetComponentInChildren<RemoteUser>();
                         // Define a posição inicial (o Lerp no SetRemoteCharacter fará o resto)
-                        remoteCharacterController.OnPositionUpdate(serverPosition);
+                        remoteCharacterController.OnPositionUpdate(initialPos);
                     }
                     else
                     {
                         remoteCharacterController = playerObject.GetComponentInChildren<RemoteUser>();
                         // Define a posição inicial (o Lerp no SetRemoteCharacter fará o resto)
-                        remoteCharacterController.OnPositionUpdate(serverPosition);
+                        if(serverPosition == Vector3.zero)
+                            remoteCharacterController.OnPositionUpdate(initialPos);
+                        else
+                            remoteCharacterController.OnPositionUpdate(serverPosition);
                     }
                 }
             }
@@ -617,10 +537,10 @@ public class NetworkManager : MonoBehaviour
                 }
             }
 
-            /*while (potycoins.TryDequeue(out int potycoin))
+            while (potycoins.TryDequeue(out int potycoin))
             {
                 FindFirstObjectByType<PotyPlayerController>().GetPotycoinsOfTheServer(potycoin);
-            }*/
+            }
 
             while (skin.TryDequeue(out string skinString))
             {
@@ -629,17 +549,9 @@ public class NetworkManager : MonoBehaviour
                 int skinIndex = int.Parse(list[1]);
                 int variant = int.Parse(list[2]);
 
+                TransitionController.Instance.UpdateMainMenu(isTheFirstAcess);
+
                 FindFirstObjectByType<PotyPlayerController>().SetSkin(bodyIndex, skinIndex, variant);
-            }
-
-            while (skinsFEM.TryDequeue(out int skinF))
-            {
-                FindFirstObjectByType<PotyPlayerController>().AddSkin(skinF);
-            }
-
-            while (skinsMAL.TryDequeue(out int skinM))
-            {
-                FindFirstObjectByType<PotyPlayerController>().AddSkin(skinM);
             }
 
             while (tickets.TryDequeue(out string ticket))

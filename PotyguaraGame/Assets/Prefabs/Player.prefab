@@ -15563,8 +15563,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3e3b7dbaa58c4b44dacd0069f255a1f6, type: 3}
   - {fileID: 21300000, guid: 38e4ff54e6a698d4e94ac684fbb12151, type: 3}
   content: {fileID: 8532130079978033834}
-  toggleTutorial: {fileID: 416469363037148090}
-  toggleWeather: {fileID: 2181306579094475864}
 --- !u!1 &6016260103156534891
 GameObject:
   m_ObjectHideFlags: 0

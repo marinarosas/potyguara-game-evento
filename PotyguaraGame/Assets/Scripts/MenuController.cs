@@ -12,9 +12,6 @@ public class MenuController : MonoBehaviour
     [SerializeField] private List<Sprite> galleryImages;
     [SerializeField] private Transform content;
 
-    public Toggle toggleTutorial;
-    public Toggle toggleWeather;
-
     void Start()
     {
         transitionController = FindFirstObjectByType<TransitionController>();
@@ -33,27 +30,15 @@ public class MenuController : MonoBehaviour
 
     public void InitializeMenu()
     {
-        toggleTutorial.isOn = NetworkManager.Instance.modeTutorialOn;
-        toggleWeather.isOn = NetworkManager.Instance.modeWeatherOn;
         if (SceneManager.GetActiveScene().buildIndex == 2) // ponta Negra
         {
             content.GetChild(0).gameObject.SetActive(false);
             content.GetChild(1).GetComponent<Button>().onClick.AddListener(GoToGallery);
             content.GetChild(2).GetComponent<Button>().onClick.AddListener(GoToMeditationRoom);
             content.GetChild(3).GetComponent<Button>().onClick.AddListener(LoadForte);
-            int potycoins = FindFirstObjectByType<PotyPlayerController>().GetPotycoins();
-            if (potycoins >= 10)
-            {
-                content.GetChild(4).GetComponent<Button>().onClick.AddListener(GoToGameForte);
-                content.GetChild(5).GetComponent<Button>().onClick.AddListener(GoToGameForteZombieMode);
-                content.GetChild(6).GetComponent<Button>().onClick.AddListener(LoadHoverBunda);
-            }
-            else
-            {
-                content.GetChild(4).GetComponent<Button>().interactable = false;
-                content.GetChild(5).GetComponent<Button>().interactable = false;
-                content.GetChild(6).GetComponent<Button>().interactable = false;
-            }
+            content.GetChild(4).GetComponent<Button>().onClick.AddListener(GoToGameForte);
+            content.GetChild(5).GetComponent<Button>().onClick.AddListener(GoToGameForteZombieMode);
+            content.GetChild(6).GetComponent<Button>().onClick.AddListener(LoadHoverBunda);
             content.GetChild(7).GetComponent<Button>().onClick.AddListener(LoadAvatarScene);
             content.GetChild(8).GetComponent<Button>().onClick.AddListener(ExitGame);
         }
@@ -65,11 +50,7 @@ public class MenuController : MonoBehaviour
             content.GetChild(3).gameObject.SetActive(false);
             content.GetChild(4).gameObject.SetActive(false);
             content.GetChild(5).gameObject.SetActive(false);
-            int potycoins = FindFirstObjectByType<PotyPlayerController>().GetPotycoins();
-            if (potycoins >= 10)
-                content.GetChild(6).GetComponent<Button>().onClick.AddListener(LoadHoverBunda);
-            else
-                content.GetChild(6).GetComponent<Button>().interactable = false;
+            content.GetChild(6).GetComponent<Button>().onClick.AddListener(LoadHoverBunda);
             content.GetChild(7).GetComponent<Button>().onClick.AddListener(LoadAvatarScene);
             content.GetChild(8).GetComponent<Button>().onClick.AddListener(ExitGame);
         }
@@ -79,31 +60,12 @@ public class MenuController : MonoBehaviour
             content.GetChild(1).gameObject.SetActive(false);
             content.GetChild(2).gameObject.SetActive(false);
             content.GetChild(3).GetComponent<Button>().onClick.AddListener(LoadForte);
-            int potycoins = FindFirstObjectByType<PotyPlayerController>().GetPotycoins();
-            if (potycoins >= 10)
-            {
-                content.GetChild(4).GetComponent<Button>().onClick.AddListener(GoToGameForte);
-                content.GetChild(5).GetComponent<Button>().onClick.AddListener(GoToGameForteZombieMode);
-            }
-            else
-            {
-                content.GetChild(4).GetComponent<Button>().interactable = false;
-                content.GetChild(5).GetComponent<Button>().interactable = false;
-            }
+            content.GetChild(4).GetComponent<Button>().onClick.AddListener(GoToGameForte);
+            content.GetChild(5).GetComponent<Button>().onClick.AddListener(GoToGameForteZombieMode);
             content.GetChild(6).gameObject.SetActive(false);
             content.GetChild(7).GetComponent<Button>().onClick.AddListener(LoadAvatarScene);
             content.GetChild(8).GetComponent<Button>().onClick.AddListener(ExitGame);
         }
-    }
-
-    public void SendModeWeather(bool value)
-    {
-        NetworkManager.Instance.SendModeWeather(value);
-    }
-
-    public void SendModeTutorial(bool value)
-    {
-        NetworkManager.Instance.SendModeTutorial(value);
     }
 
     void LoadAvatarScene()

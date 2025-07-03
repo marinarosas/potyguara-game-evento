@@ -28,6 +28,11 @@ public class HeightController : MonoBehaviour
         height = value;
     }
 
+    private void SendPos()
+    {
+        NetworkManager.Instance.SendPosition(player.transform.position);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -48,6 +53,7 @@ public class HeightController : MonoBehaviour
             }
             else
                 VariableHeight(player);
+            Invoke("SendPos", 0.2f);
         }
     }
 

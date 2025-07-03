@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class SetRemoteCharacter : MonoBehaviour
+public class RemoteUser : MonoBehaviour
 {
     private Animator currentAnimator;
 

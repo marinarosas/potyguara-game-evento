@@ -45,7 +45,6 @@ public class AvatarMenuController : MonoBehaviour
 
     public void SendChosenSkin()
     {
-
         int skinIndex = int.Parse(options[(int)Option.SKIN].GetOption());
         int variant = int.Parse(options[(int)Option.VARIANT].GetOption());
 
