@@ -41,9 +41,23 @@ public class PotyPlayerController : MonoBehaviour
     public void AddSkin(int value)
     {
         if (GetGender() == 0)
-            playerData.skinsMASC.Add(value);
+        {
+            SkinUser newSkin = new SkinUser();
+            newSkin.gender = 0;
+            newSkin.index = value;
+            newSkin.material = 0; // Default material, can be changed later
+
+            playerData.skinsMASC.Add(newSkin);
+        }
         else
-            playerData.skinsFEM.Add(value);
+        {
+            SkinUser newSkin = new SkinUser();
+            newSkin.gender = 0;
+            newSkin.index = value;
+            newSkin.material = 0; // Default material, can be changed later
+
+            playerData.skinsFEM.Add(newSkin);
+        }
     }
     public void ResetSkins() {
         if (GetGender() == 0)
@@ -54,9 +68,20 @@ public class PotyPlayerController : MonoBehaviour
     public bool VerifSkins(int index)
     {
         if (GetGender() == 0)
-            return playerData.skinsMASC.Contains(index) ? true : false;
+        {
+            foreach (SkinUser skin in playerData.skinsMASC)
+            {
+                return skin.index == index ? true : false;
+            }
+        }
         else
-            return playerData.skinsFEM.Contains(index) ? true : false;
+        {
+            foreach (SkinUser skin in playerData.skinsFEM)
+            {
+                return skin.index == index ? true : false;
+            }
+        }
+        return false;
     }
 
     public void AddTicket(string ticket) {  playerData.tickets.Add(ticket); }

@@ -12,8 +12,14 @@ public class Player
     public int pointingNormalMode { get; set; }
     public int pointingZombieMode { get; set; }
 
-    public List<int> skinsMASC = new List<int>();
-    public List<int> skinsFEM = new List<int>();
+    public bool modeTutorialOn { get; set; }
+    public bool modeWeatherOn { get; set; }
+    public bool pnFirstTutorial { get; set; }
+    public bool forteFirstTutorial { get; set; }
+    public bool hoverFirstTutorial { get; set; }
+
+    public List<SkinUser> skinsMASC = new List<SkinUser>();
+    public List<SkinUser> skinsFEM = new List<SkinUser>();
     public List<string> tickets = new List<string>();
     public List<string> sessions = new List<string>();
 

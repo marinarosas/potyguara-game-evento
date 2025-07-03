@@ -46,7 +46,7 @@ public class NetworkManager : MonoBehaviour
     public bool firstInHover = false;
     public bool firstInForte = false;
 
-    private ConcurrentQueue<int> potycoins = new ConcurrentQueue<int>();
+    //private ConcurrentQueue<int> potycoins = new ConcurrentQueue<int>();
     private ConcurrentQueue<string> pointingNormalMode = new ConcurrentQueue<string>();
     private ConcurrentQueue<string> pointingZombieMode = new ConcurrentQueue<string>();
     private ConcurrentQueue<string> skin = new ConcurrentQueue<string>();
@@ -118,14 +118,10 @@ public class NetworkManager : MonoBehaviour
         // Depois de definir os eventos, conectar ao servidor
         ws.Connect();
 
-        /*if (!SteamManager.Initialized) // Verifica se a Steam está inicializada
-            return;*/
-
         string windowsTimeZone = TimeZoneInfo.Local.Id;
         var ianaTimeZone = GetIanaTimeZone(windowsTimeZone);
 
-            SendConnectionSignal("PotyguaraVerse", ianaTimeZone);
-            //SendConnectionSignal(SteamFriends.GetPersonaName(), ianaTimeZone);
+        SendConnectionSignal("PotyguaraVerse", ianaTimeZone);
     }
 
     private string GetIanaTimeZone(string windowsTimeZone)
@@ -232,7 +228,6 @@ public class NetworkManager : MonoBehaviour
 
                         pointingNormalMode.Enqueue(response.parameters["pointingNormalMode"]);
                         pointingZombieMode.Enqueue(response.parameters["pointingZombieMode"]);
-                        potycoins.Enqueue(int.Parse(response.parameters["potycoins"]));
 
                         string ticketsS = response.parameters["tickets"];
                         string[] ticketList = ticketsS.Split('|');
@@ -490,12 +485,6 @@ public class NetworkManager : MonoBehaviour
                 { "id", id },
             }
         };
-        /*Achievement.Instance.eventos++;
-        if(Achievement.Instance.eventos == 1000)
-        {
-            Achievement.Instance.UnclockAchievement("potyverser");
-        }
-        Achievement.Instance.SetStat("eventos", Achievement.Instance.eventos);*/
 
         // solicita a atualização dos tickets para o servidor
         if (ws != null)
@@ -563,45 +552,49 @@ public class NetworkManager : MonoBehaviour
         // A cada frame, verificar se precisa instanciar quantos RemotePlayerPrefab e
         // LocalPlayerPrefab forem necessários
         if (gameState != null) {
-
-            if (SceneManager.GetActiveScene().buildIndex == 2)
+            // Para cada jogador no gameState verificar se o jogador já existe na cena
+            // Se não existir, instanciar um novo jogador
+            // Se existir, atualizar a posição do jogador
+            foreach (var playerId in gameState.players.Keys)
             {
-                // Para cada jogador no gameState verificar se o jogador já existe na cena
-                // Se não existir, instanciar um novo jogador
-                // Se existir, atualizar a posição do jogador
-                foreach (var playerId in gameState.players.Keys)
+
+                // Se o jogador for o jogador local, não fazer nada
+                if (playerId == this.playerId)
                 {
+                    FindFirstObjectByType<PotyPlayerController>().GetPotycoinsOfTheServer(gameState.players[playerId].potycoins);
+                    //Debug.Log(playerId + " SOU EU!");
+                    // é o jogador local
+                    //TODO: talvez precisa atualiza a minha posição se isso puder acontecer
+                    // com alguma ação do servidor.
+                    continue;
+                }
 
-                    // Se o jogador for o jogador local, não fazer nada
-                    if (playerId == this.playerId)
-                    {
-                        //Debug.Log(playerId + " SOU EU!");
-                        // é o jogador local
-                        //TODO: talvez precisa atualiza a minha posição se isso puder acontecer
-                        // com alguma ação do servidor.
-                        continue;
-                    }
-
+                if (SceneManager.GetActiveScene().buildIndex == 2)
+                {
                     // Buscar o jogador na cena pelo playerId
                     GameObject playerObject = GameObject.Find(playerId);
 
+                    RemoteUser remoteCharacterController = null;
 
                     // Se o jogador não existir, instanciar um novo jogador
                     if (playerObject == null)
                     {
-                        playerObject = Instantiate(RemotePlayerPrefab) as GameObject;
-                        playerObject.transform.GetChild(0).GetComponent<SetSkin>().SetSkinAvatar(gameState.players[playerId].skin.gender, 
+                        Vector3 initialPos = GameObject.Find("InitialPosition").transform.position;
+                        playerObject = Instantiate(RemotePlayerPrefab, initialPos, Quaternion.identity);
+                        playerObject.GetComponentInChildren<SetSkin>().SetSkinAvatar(gameState.players[playerId].skin.gender,
                             gameState.players[playerId].skin.index, gameState.players[playerId].skin.material);
                         playerObject.name = playerId;
-                    }
 
-                    // Atualizar a posição do jogador
-                    // TODO: implementar interpolação de movimento
-                    playerObject.transform.position = new Vector3(
-                        gameState.players[playerId].position_x,
-                        gameState.players[playerId].position_y,
-                        gameState.players[playerId].position_z
-                    );
+                        remoteCharacterController = playerObject.GetComponentInChildren<RemoteUser>();
+                        // Define a posição inicial (o Lerp no SetRemoteCharacter fará o resto)
+                        remoteCharacterController.OnPositionUpdate(serverPosition);
+                    }
+                    else
+                    {
+                        remoteCharacterController = playerObject.GetComponentInChildren<RemoteUser>();
+                        // Define a posição inicial (o Lerp no SetRemoteCharacter fará o resto)
+                        remoteCharacterController.OnPositionUpdate(serverPosition);
+                    }
                 }
             }
 
@@ -624,10 +617,10 @@ public class NetworkManager : MonoBehaviour
                 }
             }
 
-            while (potycoins.TryDequeue(out int potycoin))
+            /*while (potycoins.TryDequeue(out int potycoin))
             {
                 FindFirstObjectByType<PotyPlayerController>().GetPotycoinsOfTheServer(potycoin);
-            }
+            }*/
 
             while (skin.TryDequeue(out string skinString))
             {
@@ -668,9 +661,6 @@ public class NetworkManager : MonoBehaviour
             {
                 FindFirstObjectByType<PotyPlayerController>().SetScoreZombieMode(pointingZM);
             }
-
-            if (SceneManager.GetActiveScene().buildIndex == 0)
-                TransitionController.Instance.UpdateMainMenu(isTheFirstAcess);
         }
     }
 }
