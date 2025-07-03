@@ -154,7 +154,6 @@ public class PotyPlayerController : MonoBehaviour
     public void GetPotycoinsOfTheServer(int value)
     {
         playerData.potycoins = value;
-        GameObject.FindWithTag("MainCamera").transform.GetChild(4).GetComponent<SteamProfileManager>().UpdatePotycoins(playerData.potycoins);
     }
 
     public int GetPotycoins()
