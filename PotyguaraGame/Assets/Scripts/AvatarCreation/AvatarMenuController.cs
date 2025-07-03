@@ -19,7 +19,6 @@ public class AvatarMenuController : MonoBehaviour
 
     private void Start()
     {
-        NetworkManager.Instance.RequestSkins();
         SkinSystem skinSystem = bodies[0].GetComponent<SkinSystem>();
         if (skinSystem != null)
         {
