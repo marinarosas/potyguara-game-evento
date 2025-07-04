@@ -63,6 +63,24 @@ public class TransitionController : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.buildIndex == 0)
+        {
+            UpdateMainMenu(NetworkManager.Instance.isTheFirstAcess);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {

@@ -50,8 +50,6 @@ public class NetworkManager : MonoBehaviour
     private ConcurrentQueue<string> pointingNormalMode = new ConcurrentQueue<string>();
     private ConcurrentQueue<string> pointingZombieMode = new ConcurrentQueue<string>();
     private ConcurrentQueue<string> skin = new ConcurrentQueue<string>();
-    private ConcurrentQueue<int> skinsFEM = new ConcurrentQueue<int>();
-    private ConcurrentQueue<int> skinsMAL = new ConcurrentQueue<int>();
     private ConcurrentQueue<string> tickets = new ConcurrentQueue<string>();
     private ConcurrentQueue<string> sessions = new ConcurrentQueue<string>();
 
