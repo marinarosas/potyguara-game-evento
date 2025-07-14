@@ -474,7 +474,13 @@ public class NetworkManager : MonoBehaviour
                     // com alguma ação do servidor.
                     continue;
                 }
-              
+
+                if(!gameState.players[playerId].online)
+                    continue;
+
+                if (gameState.players[playerId].skin.gender == -1)
+                    continue;
+
                 if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1 && SceneManager.GetActiveScene().buildIndex != 5)
                 {
                     // Buscar o jogador na cena pelo playerId

@@ -28,4 +28,5 @@ public class Player
     public float position_x { get; set; }
     public float position_y { get; set; }
     public float position_z { get; set; }
+    public bool online { get; set; }
 }
